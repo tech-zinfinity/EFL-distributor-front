@@ -3,66 +3,62 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
 import { SellUnit } from 'src/app/entities/cart';
 import { Product } from 'src/app/entities/product';
-import { SubCategory } from 'src/app/entities/sub-category';
+import { ProductShortInfo } from 'src/app/entities/product-short-info';
 import { CartService } from 'src/app/services/cart.service';
 import { FireStorageService } from 'src/app/services/fire-storage.service';
 import { ProductService } from 'src/app/services/product.service';
 import { ProgressService } from 'src/app/services/progress.service';
-import { SubcategoryService } from 'src/app/services/subcategory.service';
 
 @Component({
-  selector: 'app-home',
-  templateUrl: './home.component.html',
-  styleUrls: ['./home.component.scss']
+  selector: 'app-products',
+  templateUrl: './products.component.html',
+  styleUrls: ['./products.component.scss']
 })
-export class HomeComponent implements OnInit {
-  subcategories: SubCategory[] = [];
+export class ProductsComponent implements OnInit {
+
+  product: Product = {};
   id: string;
+  list: ProductShortInfo[] = [];
+  ogList: ProductShortInfo[] = [];
+  filterList: ProductShortInfo[] = [];
+  products: Product[] = [];
   productsObs = this.cartService.productsObs;
   cart: SellUnit[] = [];
 
-  subCategoryProductMapList: SubCategoryProductMap[] = [];
-
   constructor(
-    private subcategoryService: SubcategoryService,
-    public progressService: ProgressService,
     private productService: ProductService,
     private storage: FireStorageService,
-    private router: Router,
+    public progressService: ProgressService,
     private snackbar: MatSnackBar,
+    private router: Router,
     private cartService: CartService,
   ) {
+    this.progressService.spinbool = true;
+    this.productService.getAllActiveProducts().subscribe(data => {
+      this.progressService.spinbool = false;
+      data.forEach(prod => {
+        prod.tempImages = [];
+        prod.images.forEach(i => {
+          this.storage.getDocument(i).subscribe(img => {
+            prod.tempImages.push(img);
+          })
+        })
+      });
+      this.list = data;
+      this.ogList = data;
+      this.filterList = data;
+
+      // ref.close();
+    }, err => {
+      console.log(err);
+
+    });
 
   }
 
 
   ngOnInit(): void {
-    this.subcategoryService.getAllActiveSubCategories().subscribe(data => {
-      this.subcategories = data;
-      this.subcategories.forEach(subcat => {
-        let obj: SubCategoryProductMap = {
-          subCatId: subcat.id,
-          subCatName: subcat.displayName
-        };
-        this.productService.getAllActiveProductsBySubCategoryId(subcat.id).subscribe(prods => {
-          obj.products = prods;
-          obj.products.forEach(prod => {
-            prod.tempImages = [],
-              this.storage.getDocument(prod.images[0]).subscribe(img => {
-                prod.tempImages[0] = img;
-              });
-          });
-          this.subCategoryProductMapList.push(obj);
-        });
-      });
-    }, err => {
-      console.log(err);
-    });
   }
-  displayProducts(id) {
-    this.router.navigate(['productdetails', id])
-  }
-
   addToCart(product: any) {
     console.log(product);
     console.log(this.cart);
@@ -79,7 +75,7 @@ export class HomeComponent implements OnInit {
           this.snackbar.open('Product is alreday available in Cart', 'close', { duration: 2000 })
         } else {
           let sell: SellUnit = {
-            product: product,
+            product : product,
             quantity: 1,
             price: product.price
           }
@@ -103,10 +99,8 @@ export class HomeComponent implements OnInit {
     }
   }
 
-}
+  displayProducts(id) {
+    this.router.navigate(['productdetails', id])
+  }
 
-export interface SubCategoryProductMap {
-  subCatName?: String,
-  subCatId?: String,
-  products?: Product[]
 }
