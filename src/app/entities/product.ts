@@ -27,5 +27,8 @@ export interface Product {
     active?:boolean,
     trend?:string,
     searchString?:string,
-    tempImages?:string[]
+    tempImages?:string[],
+    price?:number,
+    offerprice?:number,
+
 }

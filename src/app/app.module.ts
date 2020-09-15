@@ -14,12 +14,16 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HomeComponent } from './component/home/home.component';
 import { SpinnerComponent } from './component/spinner/spinner.component';
 import { HttpClientModule } from '@angular/common/http';
+import { ProductsComponent } from './component/products/products.component';
+import { FooterComponent } from './component/footer/footer.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
-    SpinnerComponent
+    SpinnerComponent,
+    ProductsComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,
