@@ -1,0 +1,64 @@
+<br><br><br><br><br>
+<br><br>
+<div style="align-items: center; display: flex;justify-content: center;">
+  <span class="title">Shopping Bag &nbsp;<mat-icon style="font-size: 35px;color: black;">local_mall</mat-icon></span>
+</div>
+<div style="align-items: center; display: flex;justify-content: center;">
+  <img src="../../../assets/img/line-150x22.png">
+</div>
+<br><br>
+<div style="display: flex; flex-direction: row; justify-content: center; width: 100%;">
+    <mat-card *ngIf="sellUnits.length === 0" style="background-color: black;
+    width: 50%;">
+        <p style="font-size: 20px;text-align: center;
+        color: white;">
+            No Products in Cart, Add some....!&nbsp;&nbsp;&nbsp;
+            <button mat-raised-button style="background-color: white; color: black;
+           " routerLink="/products">Continue Shopping</button> 
+        </p>
+    </mat-card>
+</div>
+<div class="main">
+    <!-- <div *ngIf="sellUnits.length === 0">
+        No Products in Cart, Add some :) !!!
+    </div> -->
+    <div class="prod">
+    <div class="container1">
+         
+        <div class="layout-box grow" *ngFor="let sellUnit of sellUnits">
+          <div style="display: flex;">
+            <img [src]="sellUnit.product.tempImages[0]" alt="" class="productimg">
+             <div style="width: 100%;">
+              <div style="word-break: break-all;padding-left: 5px; padding-top: 20px;word-wrap: break-word;">
+                <h6 style="text-align: justify;">Product: {{sellUnit.product.displayName}}</h6>
+                <h6>Location: {{sellUnit.product.location}}</h6>
+                <h6>Quantity: {{sellUnit.quantity}}</h6>
+                <h6>Price: ₹ {{sellUnit.price}}</h6>                  
+              </div>
+           
+            <div style="margin-top: 10px;">
+                <button mat-icon-button (click)="incrementQuantity(sellUnit.product)" style="background-color: whitesmoke;">
+                    <mat-icon style="color: blue;">add</mat-icon>
+                </button>&nbsp;&nbsp;
+                <button mat-icon-button (click)="decrementQuantity(sellUnit.product)" style="background-color: whitesmoke;margin-top: 5px;">
+                    <mat-icon style="color: blue;">remove</mat-icon>
+                </button>&nbsp;&nbsp;
+                <button mat-icon-button (click)="removeFromCart(sellUnit)" style="background-color: #e41c1c;margin-top: 5px;">
+                    <mat-icon style="color: white;">delete</mat-icon>
+                </button>
+            </div><br>
+            </div>
+          </div>
+        </div>    
+    </div>
+</div><br><br>
+    <div class="checkout" *ngIf="sellUnits.length != 0">
+        <div class="place-order">
+            <p style="font-size: 20px;font-family: 'Rowdies', cursive; text-align: center;">
+                Cart Price : ₹ {{cartPrice}}</p>
+            <button mat-raised-button class="shopping-btn" style="outline: none;" routerLink="/checkout">Checkout</button>
+            <button mat-raised-button class="checkout-btn" style="outline: none;" routerLink="/products">Continue Shopping</button>
+        </div>
+    </div>
+    
+</div>

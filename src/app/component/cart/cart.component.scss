@@ -1,0 +1,141 @@
+.main{
+    margin: 0% 9% 0% 9%;
+    min-height: 70vh;
+ }
+ .card-horizontal {
+    display: flex;
+    flex: 1 1 auto;
+}
+
+.container1{
+    width: 100%;
+    display: grid;
+    grid-gap:50px;
+    grid-template-columns: repeat(2, 1fr);
+}
+
+.layout-box{
+  background: 
+  white;
+  color: black;
+  min-height:180px;
+  height: auto;
+    background-size: cover; 
+    position: relative;
+    border-radius: 16px;
+    box-shadow: 0 0 3em rgba(0,0,0,0.15);
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+}
+
+.productimg{
+    width: 24%;
+    height: 140px;
+    margin: 2%;
+    border-radius: 2%;
+  }
+
+  .footer {
+    position: absolute;
+    right: 0px;
+    bottom: 10px;
+    left: 15px;
+    text-align: center;
+    width: 95%;
+    border-radius: 20px;
+    font-size: large;
+    outline: none;
+  }
+
+  .prod{
+      display: flex;
+  }
+  
+@media (min-width: 300px)and(max-width: 1200px) {
+    .prod{
+        display: flex;
+        flex-direction: column;
+    }
+    
+}
+.checkout{
+    width: 100%;
+}
+
+.place-order{
+    background-color: #affaaf;
+    border-radius: 10px;
+    height: 150px;
+
+    padding: 3%;
+}
+
+.title{
+    font-family: 'Rowdies', cursive;
+    font-size: 40px;
+    text-transform: uppercase;
+}
+.checkout-btn{
+    border-bottom-left-radius: 20px;
+    border-top-left-radius: 20px;
+    width: 49%;
+    padding: 0.3%;
+    border: 1px solid black;
+}
+.shopping-btn{
+    border-bottom-right-radius: 20px;
+    border-top-right-radius: 20px; 
+    width: 49%;
+    float: right; 
+    padding: 0.3%;
+    background-color: black;
+    color: blanchedalmond;
+}
+@media (min-width: 320px) and (max-width: 480px) {
+    .prod{
+        width: 100%;
+    }
+    .container1{
+        width: 100%;
+        display: grid;
+        grid-template-columns: repeat(1, 1fr);
+    }
+    .productimg{
+        width: 26%;
+        height: 100px;
+        margin-top: 10%;
+        margin-bottom: 10%;
+        border-radius: 2%;
+      }
+      .layout-box{
+        background: 
+        white;
+        color: black;
+        min-height:175px;
+        height: auto;
+          background-size: cover; 
+          position: relative;
+          border-radius: 16px;
+          box-shadow: 0 0 3em rgba(0,0,0,0.15);
+          display: grid;
+          grid-template-rows: auto 1fr auto;
+      }
+      .place-order{
+        background-color: #affaaf;
+        border-radius: 16px;
+        height: 120px;
+        margin-left: 0;
+        width: 100%;
+        margin-top: 20px;
+    }
+    .checkout{
+        width: 100%;
+    }
+    .title{
+        font-family: 'Rowdies', cursive;
+        font-size: 30px;
+        text-transform: uppercase;
+    }
+  }
+
+  
