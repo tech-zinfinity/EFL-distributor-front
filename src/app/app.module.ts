@@ -16,6 +16,7 @@ import { SpinnerComponent } from './component/spinner/spinner.component';
 import { HttpClientModule } from '@angular/common/http';
 
 import { FooterComponent } from './component/footer/footer.component';
+import { CartComponent } from './component/cart/cart.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,9 @@ import { FooterComponent } from './component/footer/footer.component';
     HomeComponent,
     SpinnerComponent,
     
-    FooterComponent
+    FooterComponent,
+    
+    CartComponent
   ],
   imports: [
     BrowserModule,

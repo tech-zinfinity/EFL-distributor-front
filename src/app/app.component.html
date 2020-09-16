@@ -2,8 +2,14 @@
  justify-content: space-between;">
   <div>
     Earthen Flavours Distributor Portal
-  </div> 
-  <div> 
+  </div>
+  <div style="display: flex; flex-direction: row;">
+    <div routerLink="/cart" style="outline: none !important;cursor: pointer;" class="cart">
+      <i class="material-icons">
+        <mat-icon matBadgeColor="warn" matBadge="{{this.cartService.pincart}}" matBadgeOverlap="true">local_mall
+        </mat-icon>
+      </i>
+    </div> &nbsp; &nbsp;
     <button mat-raised-button style="background-color: white; color: blue;">Login</button> &nbsp;
     <button mat-stroked-button style="background-color: blue; color: white">Sign-Up</button>
 
@@ -11,10 +17,11 @@
   </div>
 
 </mat-toolbar>
-<app-home></app-home>
+
+<router-outlet></router-outlet>
 <app-footer></app-footer>
 <a href="https://api.whatsapp.com/send?phone=919324021394&text=Hello%21%20" class="float" target="_blank">
-    <i class="fab fa-whatsapp my-float"></i>
-    </a>
+  <i class="fab fa-whatsapp my-float"></i>
+</a>
 
-    <button class="back-to-top" type="button"><i class="fas fa-chevron-up"></i></button>
+<button class="back-to-top" type="button"><i class="fas fa-chevron-up"></i></button>
