@@ -1,0 +1,24 @@
+<div> 
+    <form  [formGroup]="signupForm" style="display: flex; flex-direction: column;">
+        <div style="width:100%; display: flex; flex-direction: column;">
+            <mat-form-field appearance="outline">
+              <mat-label>Username</mat-label>
+              <input matInput placeholder="username" formControlName="username">
+            </mat-form-field>
+            <mat-form-field appearance="outline">
+              <mat-label>Password</mat-label>
+              <input matInput placeholder="password" formControlName="password" type="password">
+            </mat-form-field>
+            <mat-form-field appearance="outline">
+              <mat-label>Confirm Password</mat-label>
+              <input matInput placeholder="confirm password" formControlName="confirmpassword" type="password">
+            </mat-form-field>
+            <button mat-raised-button color="primary" (click)="signUp(signupForm.value)" [disabled]="signupForm.invalid">Sign Up</button>
+      </div>
+    
+    </form>
+    </div>
+    
+    
+    
+         

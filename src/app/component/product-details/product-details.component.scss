@@ -1,0 +1,95 @@
+.main{
+    display: flex;
+    width: 100%;
+    margin: 5% 8% 0 8%;
+  }
+  
+  
+  
+  .product-img{
+    width: 40%;
+    margin-right: 3%;
+    flex-direction: row;
+  }
+  .product-price{
+    width: 50%;
+    flex-direction: row;
+    margin-left: 3%;
+  }
+  
+  img{
+    height: 400px;
+    border-radius: 10px; 
+  }
+  
+  @media (min-width: 320px) and (max-width: 480px) {
+    .main{
+      display: flex;
+      flex-direction: column !important;
+      width: 100%;
+      
+    }
+    img{
+      height: 300px;
+      border-radius: 10px; 
+    }
+    .product-img{
+      width: 100%;
+      display: flex !important;
+      flex-direction: column !important;
+    }
+    .product-price{
+      width: 100%;
+      display: flex !important;
+      flex-direction: column !important;
+      margin-left: 0%;
+      margin-top: 10px;
+    }
+    .offer{
+      margin-top: 20px;
+    }
+    .enquire{
+      width: 90% !important;
+      height: 50px; 
+      border-color: black;
+      color: wheat;
+      outline: none;
+      border-radius: 50px !important; 
+      font-size: large;
+      outline: none;
+      background-color: black;
+    }
+    .enquire:hover{
+      width: 90% !important;
+      height: 50px; 
+      border-color: black;
+      color: black;
+      outline: none;
+      border-radius: 50px !important; 
+      font-size: large;
+    }
+    
+  }
+  .enquire{
+    width: 55%;
+    height: 50px; 
+    border-color: black;
+    color: white;
+    outline: none;
+    border-radius: 50px !important; 
+    font-size: 20px;
+    outline: none;
+    background-color: black;
+  }
+  .enquire:hover{
+    width: 55%;
+    height: 50px; 
+    background-color: transparent;
+    color: black;
+    outline: none;
+    border-radius: 50px !important; 
+    font-size: large;
+  }
+  .d-block{
+    
+  }

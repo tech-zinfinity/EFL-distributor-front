@@ -1,0 +1,73 @@
+<br><br><br><br>
+<div style="width: 100%; display: flex;">
+    <div class="main">
+
+        <div class="product-img">
+            <div id="carouselExampleInterval" class="carousel slide" data-ride="carousel">
+                <div class="carousel-inner">
+                    <div class="carousel-item active" data-interval="10000" *ngFor="let img of product.tempImages">
+                        <img [src]="img" class="d-block w-100" alt="...">
+                    </div>
+                </div>
+                <!-- <a class="carousel-control-prev" href="#carouselExampleInterval" role="button" data-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Previous</span>
+                </a>
+                <a class="carousel-control-next" href="#carouselExampleInterval" role="button" data-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Next</span>
+                </a> -->
+            </div>
+        </div>
+
+
+
+        <div class="product-price" >
+            <!-- <button type="button" class="btn btn-success offer">17% OFF</button> -->
+            <div style="">
+                <h3>{{product.displayName}}</h3>
+                <p *ngIf="product.pricing != undefined">Product MRP: <span style="text-decoration: line-through;">₹{{product.pricing.offerPrice}}</span></p>
+                <p *ngIf="product.pricing != undefined">Offer Price: <span style="font-size: large;font-weight: bold;">₹{{product.pricing.price}}</span>
+                    <br><span style="color: gray;">(Inclusive of all taxes)</span>
+                </p>
+                <p class="" *ngIf="product.pricing != undefined">Available in
+                    <br> <button type="button" class="btn " style="border-color: green;border-radius: 50px;">{{product.pricing.unit}}</button>
+
+                </p>
+
+                <p>
+                    Shelf Life : <span>{{product.shelfLife}}</span>
+                </p>
+                <p>
+                    <button mat-stroked-button class="enquire"  (click)="addToCart(product)">Add To Cart</button>
+                </p>
+                <p>
+                    <span style="font-size: large;font-weight: bold;">Checkout securely with</span><br>
+                    <img src="../../../assets/img/payments/visa.svg" alt="" style="width: 50px;height: 40px;"> &nbsp;
+                    <img src="../../../assets/img/payments/master-card.svg" alt="" style="width: 50px;height: 40px;">&nbsp;
+                    <img src="../../../assets/img/payments/rupay-logo.svg" alt="" style="width: 50px;height: 40px;">&nbsp;
+                    <img src="../../../assets/img/payments/upi.svg" alt="" style="width: 50px;height: 40px;">&nbsp;
+                </p>
+            </div>
+        </div>
+
+    </div>
+
+</div>
+<div class="sharethis-inline-share-buttons"></div>
+
+<div style="display: flex; width: 100%;">
+    <div class="main">
+
+        <div class="product-img">
+            <h4>Product Details</h4>
+            <p>{{product.description}}</p>
+        </div>
+        <div class="product-price">
+            <h4>Manufactured in</h4>
+            <p>{{product.location}}</p>
+            <h4>Fssai Lic No.</h4>
+            <p>{{product.fssiLicenceNo}}</p>
+        </div>
+    </div>
+</div>

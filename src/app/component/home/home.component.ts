@@ -95,7 +95,10 @@ export class HomeComponent implements OnInit {
         }
         this.cart.push(sell);
         this.cartService.publishCart(this.cart);
-        this.snackbar.open('Product is added in Cart', 'close', { duration: 2000 })
+        this.snackbar.open('Product is added in Cart', 'close',{ 
+          duration: 2000,
+          // panelClass: ['blue-snackbar']
+        });
       }
 
     } else {

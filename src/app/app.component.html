@@ -1,20 +1,24 @@
 <mat-toolbar style="background-color: white;" style="display: flex; flex-direction: row;
  justify-content: space-between;">
   <div>
-    Earthen Flavours Distributor Portal
+    Earthen Flavours Distributors Portal
   </div> 
   <div> 
-    <button mat-raised-button style="background-color: white; color: blue;">Login</button> &nbsp;
-    <button mat-stroked-button style="background-color: blue; color: white">Sign-Up</button>
-
+    <!-- <button mat-raised-button style="background-color: white; color: blue;">Login</button> &nbsp; -->
+    <button mat-stroked-button (click)="openSignupDialog()" style="background-color: blue; color: white">Register</button>
+    <button class="nav-item">
+      <a class="nav-link m-2 menu-item" href="" routerLink="cart"  >
+        <mat-icon matBadgeColor="warn"
+        matBadge="{{this.cartService.pincart}}" matBadgeOverlap="true"
+        style="cursor: pointer;" matTooltip="Cart">local_mall</mat-icon></a>
+    </button>
     <strong></strong>
   </div>
 
 </mat-toolbar>
-<app-home></app-home>
+<router-outlet></router-outlet>
 <app-footer></app-footer>
 <a href="https://api.whatsapp.com/send?phone=919324021394&text=Hello%21%20" class="float" target="_blank">
     <i class="fab fa-whatsapp my-float"></i>
     </a>
-
     <button class="back-to-top" type="button"><i class="fas fa-chevron-up"></i></button>
