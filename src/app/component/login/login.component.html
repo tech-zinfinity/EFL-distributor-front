@@ -1,0 +1,39 @@
+<div style="display: flex; flex-direction: row; height: 100%;">
+    <div style="width: 70%; background-color: black; color: white;">
+        <img style="display: flex; flex-direction: column; width: 90%; margin-top: 15%; margin-left: 5%; height: 60%;"
+            src="/assets/img/1600528599103_1.jpg"/>
+    </div>
+    <div style="width: 30%; display: flex; justify-content: center;">
+        <mat-card style="display: flex; flex-direction: column; width: 80%; margin-top: 15%; height: 50%;">
+            Login form
+            <br><br>
+            <form [formGroup]="loginForm" style="display: flex; flex-direction: column;">
+                <span *ngIf="username.errors && (username.dirty || username.touched)" class="validatorsStyle">
+                    <span *ngIf="loginForm.get('username').errors?.required">*Username Will be Required &nbsp;</span>
+                    <span *ngIf="loginForm.get('username').errors?.pattern">*Only Alphabets Allowed &nbsp;</span>
+                </span>
+                <mat-form-field appearance="outline">
+                    <mat-label>Username</mat-label>
+                    <input matInput placeholder="username" formControlName="username">
+                </mat-form-field>
+                <mat-form-field appearance="outline">
+                    <mat-label>Password</mat-label>
+                    <input matInput placeholder="password" formControlName="password">
+                </mat-form-field>
+                <div style="display: flex;
+                justify-content: center;">
+                    <div style="width: 100% !important;">
+                        <button mat-raised-button color="primary" style="margin-bottom: 10px; width:80%;"
+                            [disabled]="loginForm.invalid" (click)="login(loginForm.value)">Login</button><br>
+                    </div>
+                    <div style="width: 100% !important;">
+                        <button mat-raised-button color="warn" style="width:100%;">Forgot Password</button>
+                    </div>
+                </div>
+
+            </form>
+
+
+        </mat-card>
+    </div>
+</div>

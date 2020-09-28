@@ -1,0 +1,64 @@
+<br><br><br><br><br>
+<div style="width: 100%;display: flex;" >
+  <div style="text-align: center;margin:0 9% 0 9%; display: flex; justify-content: center; width: 100%; flex-direction: column;">
+    <div class="alert alert-primary" role="alert" id="content-mobile">
+      <i class="fas fa-exclamation-circle"></i>
+      Only UPI Payment Available
+    </div>
+
+    <div style="width: 100%;" >
+      <div class="checkout-main">
+        <div class="product-details" style="width: 60%;margin-right: 20px; background-color: #d4edda;border:1px solid  #61b894;border-radius: 10px;padding: 2%;">
+          <div *ngFor="let sellUnit of sellUnits" class="products-details">
+            
+            
+            <div class="chckout-details">
+              <div class="product-name">{{sellUnit.productName}}</div>
+              <div class="product-qty">Qty:{{sellUnit.quantity}}</div>
+              <div class="product-price">Price: ₹{{sellUnit.finalPrice}}</div>
+            </div>
+          </div>
+        </div>
+      
+        
+
+        <div class="total">
+          <mat-card style="border-radius: 10px;background-color: #3bb78f;
+          background-image: linear-gradient(315deg, #3bb78f 0%, #0bab64 74%);">
+            <p style="color: white;">Total Price : ₹{{totalPrice}}</p>
+            <p style="color: white;">Delivery Charge : ₹{{deliveryCharge}}</p>
+            <hr>
+            <p><button mat-raised-button style="border-radius: 20px;font-size: large;">Final Price : ₹{{finalPrice}}</button></p>
+          </mat-card>
+        </div>
+      </div>
+      </div>
+
+      <br>
+  <mat-card *ngIf="currentOrder != null" style="display: flex; flex-direction: column;background-color: #4dccc6;
+  background-image: linear-gradient(315deg, #4dccc6 0%, #96e4df 74%);;color:black;border-radius: 10px;">
+   <p style="text-align: left !important;float: left !important;font-size: larger;">Name -
+    <strong>{{currentOrder.custName}}</strong></p> 
+
+    <p style="text-align: left !important;float: left !important;font-size: larger;">Contact - 
+      <strong>{{currentOrder.contact.phone1}}</strong> &nbsp;Email - <strong>{{currentOrder.contact.email}}</strong></p>
+      
+   <p style="text-align: left !important;float: left !important;font-size: larger;"> Address - 
+    {{currentOrder.deliveryAddress.line1}} ,
+    {{currentOrder.deliveryAddress.line2}}</p>
+
+    <p style="text-align: left !important;float: left !important;font-size: larger;">City - {{currentOrder.deliveryAddress.city}}
+    &nbsp;Landmark - {{currentOrder.deliveryAddress.landmark}}</p>
+    <p style="text-align: left !important;float: left !important;font-size: larger;">Pincode - {{currentOrder.deliveryAddress.pincode}}</p>
+
+    
+  </mat-card><br>
+  <!-- <button style="border:1px solid #9c5a12;color:white; background-color: #9c5a12; border-radius: 30px;padding: 0.4%;outline: none;" mat-stroked-button (click)="VerifyCustomer()" *ngIf="currentOrder === null">Add Basic Info and Proceed</button>
+  <br> -->
+  <!-- <button mat-stroked-button color="primary"(click)="placeOrder()" style="border:1px solid #c7f50d;color:white;outline: none; background-color: #809a15; border-radius: 30px;padding: 0.4%;"
+  *ngIf="currentOrder != null">Place Order with Cash on Delivery</button> -->
+  <button mat-stroked-button color="primary"(click)="placeOrderOnline()" style="border:1px solid black;color:white;outline: none; background-color: black; border-radius: 30px;padding: 0.4%;"
+  *ngIf="currentOrder != null">Pay Online</button>
+  </div>
+</div>
+

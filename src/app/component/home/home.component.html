@@ -1,11 +1,5 @@
 <div *ngFor="let cats of subCategoryProductMapList">
   <p class=" mid underline ">{{cats.subCatName}}</p><br>
-  <!-- <div class="layout-box grow "  *ngFor="let product of cats.products" >
-
-    <p style="text-align: justify;">{{product.displayName}}</p>
-    <img [src]="product.tempImages[0]" height="300px" width="300px">
-    </div> -->
-
     <div class="container1">
          
       <div class="layout-box grow "   *ngFor="let product of cats.products"  >
@@ -21,8 +15,8 @@
               <p style="text-align: justify;">{{product.displayName}}</p>
               <!-- <h6>{{product.id}}</h6> -->
               <div style="display: flex; padding-top: 10px;">
-                <div style="width: 100%;"><h6><span style="text-decoration-line: line-through;">₹{{product.offerprice}}</span> 
-                  &nbsp;₹{{product.price}}
+                <div style="width: 100%;"><h6><span style="text-decoration-line: line-through;">₹{{product.pricing.offerPrice}}</span> 
+                  &nbsp;₹{{product.pricing.price}}
                 </h6></div>
             </div>
             <div>

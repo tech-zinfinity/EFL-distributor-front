@@ -16,7 +16,14 @@ import { SpinnerComponent } from './component/spinner/spinner.component';
 import { HttpClientModule } from '@angular/common/http';
 
 import { FooterComponent } from './component/footer/footer.component';
+
+import { ProductDetailsComponent } from './component/product-details/product-details.component';
+import { LoginComponent } from './component/login/login.component';
+import { SignUpComponent } from './component/sign-up/sign-up.component';
 import { CartComponent } from './component/cart/cart.component';
+import { CheckOutComponent } from './component/check-out/check-out.component';
+import { AddBillingInfoComponent } from './component/add-billing-info/add-billing-info.component';
+
 
 @NgModule({
   declarations: [
@@ -26,7 +33,18 @@ import { CartComponent } from './component/cart/cart.component';
     
     FooterComponent,
     
-    CartComponent
+
+    ProductDetailsComponent,
+    
+    LoginComponent,
+    
+    SignUpComponent,
+    
+    CartComponent,
+    
+    CheckOutComponent,
+    
+    AddBillingInfoComponent
   ],
   imports: [
     BrowserModule,

@@ -1,62 +1,48 @@
 body{
-    font-family: 'Jost', sans-serif;
-    button{
-        font-family: 'Jost', sans-serif !important;
-      }
+
+  font-family: 'Jost', sans-serif;
+  // button{
+  //     font-family: 'Jost', sans-serif !important;
+  //   }
 }
+$mat-form-field-legacy-dedupe: null;
+
 
 html, body { height: 100%; 
 }
 body { margin: 0; 
-//   .validatorsStyle
-//   {
-//     color: red;
-//     font-size: small;
+.validatorsStyle
+{
+  color: red;
+  font-size: small;
 
-   
-//   }
-//   .my-class .mat-dialog-container{
-//     background: transparent;
-//     opacity: 10;
-//     box-shadow: none;
-//   }
-
-//   .green-backdrop {
-//     background-color: black;
-//     opacity: 0.6 !important;
-//   }
-
-  #content-desktop {display: block;}
-  #content-mobile {display: none;}
-  
-  @media screen and (max-width: 768px) {
-  
-  #content-desktop {display: none;}
-  #content-mobile {display: block;}
-  
-  }
-  @import '~@angular/material/theming';
-//   $custom-typography: mat-typography-config(
-//     $font-family: 'Jost'
-//   );
-//   @include mat-core($custom-typography);
-
+ 
+}
+.my-class .mat-dialog-container{
+  background: transparent;
+  opacity: 10;
+  box-shadow: none;
 }
 
-@import '@angular/material/prebuilt-themes/deeppurple-amber.css';
-
-// @import '~@angular/material/theming';
-
-// Create a config with the default typography levels.
-$config: mat-typography-config();
-
-// Custom header that uses only the Material `font-size` and `font-family`.
-.unicorn-header {
-  font-size: mat-font-size($config, headline);
-  font-family: mat-font-family($config);
+.green-backdrop {
+  background-color: black;
+  opacity: 0.6 !important;
 }
 
-// Custom title that uses all of the typography styles from the `title` level.
-.unicorn-title {
-  @include mat-typography-level-to-styles($config, title);
+#content-desktop {display: block;}
+#content-mobile {display: none;}
+
+@media screen and (max-width: 768px) {
+
+#content-desktop {display: none;}
+#content-mobile {display: block;}
+
+}
+@import '~@angular/material/theming';
+$custom-typography: mat-typography-config(
+  $font-family: 'Jost'
+);
+@include mat-core($custom-typography);
+
+
 }
