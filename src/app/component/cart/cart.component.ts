@@ -1,7 +1,9 @@
+
 import { Component, OnInit } from '@angular/core';
 import { SellUnit } from 'src/app/entities/cart';
 import { CartService } from 'src/app/services/cart.service';
 import { FireStorageService } from 'src/app/services/fire-storage.service';
+
 
 @Component({
   selector: 'app-cart',
@@ -11,6 +13,7 @@ import { FireStorageService } from 'src/app/services/fire-storage.service';
 export class CartComponent implements OnInit {
 
   productsObs = this.cartService.productsObs;
+
   sellUnits: SellUnit[] = [];
   cartPrice: number = 0;
 
@@ -43,10 +46,11 @@ export class CartComponent implements OnInit {
   }
 
   removeFromCart(product: SellUnit) {
-    this.sellUnits.splice(this.sellUnits.indexOf(product), 1);
+ts.splice(this.sellUnits.indexOf(product), 1);
     this.decreaseCartPrice(product.price);
     this.cartService.publishCart(this.sellUnits);
   }
+
 
   increaseCartPrice(value: number) {
     this.cartPrice = this.cartPrice + value;
@@ -66,11 +70,12 @@ export class CartComponent implements OnInit {
             this.increaseCartPrice(sell.price);
             this.cartService.publishCart(this.sellUnits);
           } else {
+
+ 
             this.removeFromCart(sell);
           }
         }
-      })
-    } else {
+      })    } else {
       this.sellUnits.forEach(sell => {
         if (sell.product.id === product.id) {
           if (sell.quantity > 1) {
@@ -80,6 +85,7 @@ export class CartComponent implements OnInit {
             this.increaseCartPrice(sell.price);
             this.cartService.publishCart(this.sellUnits);
           } else {
+
             this.removeFromCart(sell);
           }
         }
@@ -87,6 +93,7 @@ export class CartComponent implements OnInit {
     }
 
   }
+
 
   incrementQuantity(product: any) {
     if (product.pricing === undefined) {

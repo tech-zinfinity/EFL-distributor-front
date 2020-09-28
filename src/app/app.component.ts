@@ -1,7 +1,9 @@
+
 import { Component } from '@angular/core';
 import { SignUpComponent } from './component/sign-up/sign-up.component';
 import { MatDialog } from '@angular/material/dialog';
 import { CartService } from './services/cart.service';
+
 
 
 @Component({
@@ -9,6 +11,7 @@ import { CartService } from './services/cart.service';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
+
 export class AppComponent {
 
   constructor(
@@ -20,5 +23,7 @@ export class AppComponent {
 
   openSignupDialog() {
     this.dialog.open(SignUpComponent);
+
+
   }
 }
